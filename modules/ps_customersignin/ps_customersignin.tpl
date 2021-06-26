@@ -42,8 +42,8 @@
       title="{l s='Log in to your customer account' d='Shop.Theme.Customeraccount'}"
       rel="nofollow"
     >
-      <span><i class="material-icons">&#xE7FF;</i></span>
-      <span class="visible--desktop small">{l s='Sign in' d='Shop.Theme.Actions'}</span>
+      <svg style="width:24px;height:24px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" enable-background="new 0 0 24 24" class="Svg-sc-1w4q54b iyEeRT"><path d="M12 12c-2.2 0-4-1.8-4-4s1.8-4 4-4 4 1.8 4 4-1.8 4-4 4zm0-6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM20 20h-16v-1c0-3.5 3.3-6 8-6s8 2.5 8 6v1zm-13.8-2h11.7c-.6-1.8-2.8-3-5.8-3s-5.3 1.2-5.9 3z"></path></svg>
+      <span class="visible--desktop">{l s='Sign in' d='Shop.Theme.Actions'}</span>
     </a>
   {/if}
 </div>

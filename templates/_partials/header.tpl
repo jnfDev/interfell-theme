@@ -29,7 +29,7 @@
 {/block}
 
 {block name='header_nav'}
-    <div class="header-nav u-bor-bot">
+    {* <div class="header-nav u-bor-bot">
         <div class="header__container container">
             <div class="u-a-i-c d--flex-between visible--desktop">
                 <div class="small">
@@ -40,25 +40,22 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> *}
 {/block}
 
 {block name='header_top'}
-    <div class="container header-top d--flex-between u-a-i-c">
-        <button class="visible--mobile btn" id="menu-icon" data-toggle="modal" data-target="#mobile_top_menu_wrapper">
-            <i class="material-icons d-inline">&#xE5D2;</i>
-        </button>
-        <a href="{$urls.base_url}" class="header__logo header-top__col">
-            <img class="logo img-fluid" src="{$shop.logo}" alt="{$shop.name}">
+    <div class="container header-top d-flex justify-content-start u-a-i-c">
+        <a href="{$urls.base_url}" class="header__logo">
+            <img width="138" height="48" class="logo img-fluid" src="{$urls.img_url}logo.svg" alt="{$shop.name}">
         </a>
         <div class="header__search">
             {hook h='displaySearch'}
         </div>
-        <div class="header__right header-top__col">
+        <div class="header__right">
             {hook h='displayTop'}
         </div>
     </div>
-    <div class="container">
+    {* <div class="container">
         {hook h='displayNavFullWidth'}
-    </div>
+    </div> *}
 {/block}
