@@ -96,6 +96,10 @@
         {block name="footer"}
           {include file="_partials/footer.tpl"}
         {/block}
+
+        <p class="footer-copyright">
+          PC Componentes y Multimedia SLU CIF B73347494. AVDA Europa, Parcela 2-5 y 2-6. Polígono industrial Las Salinas, 30840, Alhama de Murcia, Murcia. ESPAÑA.
+        </p>
       </footer>
 
     </main>

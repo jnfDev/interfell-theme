@@ -22,18 +22,16 @@
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  *}
-<div id="_desktop_language_selector">
-  <div class="language-selector-wrapper">
-    <span id="language-selector-label" class="d-inline-block d-md-none">{l s='Language:' d='Shop.Theme.Global'}</span>
-    <div class="language-selector dropdown js-dropdown">
-      <button data-toggle="dropdown" class="btn btn-sm dropdown-toggle" aria-haspopup="true" aria-expanded="false" aria-label="{l s='Language dropdown' d='Shop.Theme.Global'}">
-          {$current_language.name_simple}
-      </button>
-      <div class="dropdown-menu" aria-labelledby="language-selector-label">
-          {foreach from=$languages item=language}
-              <a href="{url entity='language' id=$language.id_lang}" class="dropdown-item small{if $language.id_lang == $current_language.id_lang} active{/if}" data-iso-code="{$language.iso_code}">{$language.name_simple}</a>
-          {/foreach}
-      </div>
+<div class="language-selector-wrapper">
+  <h4 class="footer-title">PcComponentes en</h4>
+  <div class="language-selector dropdown js-dropdown">
+    <button data-toggle="dropdown" class="btn btn-sm dropdown-toggle" aria-haspopup="true" aria-expanded="false" aria-label="{l s='Language dropdown' d='Shop.Theme.Global'}">
+        {$current_language.name_simple}
+    </button>
+    <div class="dropdown-menu" aria-labelledby="language-selector-label">
+        {foreach from=$languages item=language}
+            <a href="{url entity='language' id=$language.id_lang}" class="dropdown-item small{if $language.id_lang == $current_language.id_lang} active{/if}" data-iso-code="{$language.iso_code}">{$language.name_simple}</a>
+        {/foreach}
     </div>
   </div>
 </div>

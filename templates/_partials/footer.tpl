@@ -22,31 +22,21 @@
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  *}
-<div class="container">
-  <div class="row">
-    {block name='hook_footer_before'}
-      {hook h='displayFooterBefore'}
-    {/block}
-  </div>
+
+<div class="before-footer row">
+  {block name='hook_footer_before'}
+    {hook h='displayFooterBefore'}
+  {/block}
 </div>
 <div class="footer-container">
-  <div class="container">
-    <div class="row">
-      {block name='hook_footer'}
-        {hook h='displayFooter'}
-      {/block}
-    </div>
-    <div class="row">
-      {block name='hook_footer_after'}
-        {hook h='displayFooterAfter'}
-      {/block}
-    </div>
-    <p class="text-center mb-0 pb-3">
-      {block name='copyright_link'}
-        <a class="_blank" href="https://prestarocket.com/" target="_blank" rel="nofollow">
-          {l s='%copyright% %year% - Theme by %prestashop%' sprintf=['%prestashop%' => 'Prestarocket™', '%year%' => 'Y'|date, '%copyright%' => '©'] d='Shop.Theme.Global'}
-        </a>
-      {/block}
-    </p>
+  <div class="row">
+    {block name='hook_footer'}
+      {include file="_partials/footer-links.tpl"}
+    {/block}
+  </div>
+  <div class="row">
+    {block name='hook_footer_after'}
+      {hook h='displayFooterAfter'}
+    {/block}
   </div>
 </div>

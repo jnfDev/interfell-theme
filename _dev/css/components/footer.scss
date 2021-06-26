@@ -1,18 +1,86 @@
 .l-footer {
-  color: $text-muted;
 
+  [class *= "col-"] {
+    padding: 0;
+  }
 
-  .cms-page-link,
-  .account-list a{
-    color: $text-muted;
-    &:hover{
-      color: theme-color('primary');
+  h4.footer-title {
+    color: #333;
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 700;
+    margin: 1rem auto;
+    padding: 0.5rem 0.75rem;
+  }
+
+  li {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    min-height: 40px;
+
+    a.footer-link {
+      font-size: 0.875rem;
+      color: #333;
+      text-decoration: none;
+      transition: color .25s ease-out;
+      padding: 8px 16px 8px 6px;
+      display: -webkit-inline-box;
+      display: -webkit-inline-flex;
+      display: -ms-inline-flexbox;
+      display: inline-flex;
+      -webkit-box-pack: start;
+      -webkit-justify-content: start;
+      -ms-flex-pack: start;
+      justify-content: start;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+      -ms-flex-align: center;
+      align-items: center;
+      width: 100%;
+      line-height: 20px;
+      &:hover {
+        border-radius: 4px;
+        background: #f2f2f2;
+      }
+
+      svg {
+        margin-right: 8px;
+      }
 
     }
   }
+
+  .badgets-img {
+    margin: 24px 8px;
+
+    @include media-breakpoint-up(lg) {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: nowrap;  
+      & > img {
+        width: 40%;
+      }
+      
+      & > svg {
+        flex: 1;
+      }
+    }
+  }
+
+  .footer-copyright {
+    color: #000;
+    font-size: 12px;
+    line-height: 16px;
+    padding: 24px;
+    text-align: center;
+    border-top: 1px solid #ccc;
+    background-color: #fff;
+  }
+
 }
 .footer-container{
-  margin-top: $footer-container-margin-top;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .footer__title{
@@ -46,7 +114,21 @@
   }
 }
 
+.footer__title--mobile {
+  padding: 1.1rem .7rem;
+  font-size: 0.875rem;
+  text-transform: capitalize;
+}
+
 @include media-breakpoint-mobile {
+  
+  .l-footer h4.footer-title {
+    display: none;
+  }
+  .l-footer .language-selector-wrapper h4.footer-title {
+    display: block;
+  }
+
   .footer__title{
     &--desktop{
 
