@@ -37,33 +37,37 @@
 
 {block name='page_content_container'}
   <section id="content" class="page-content page-order-confirmation card mb-3">
-        {block name='order_confirmation_table'}
-        <div>
-      {include
-            file='checkout/_partials/order-confirmation-table.tpl'
-            products=$order.products
-            subtotals=$order.subtotals
-            totals=$order.totals
-            labels=$order.labels
-            add_product_link=false
-          }
-        </div>
-        {/block}
-        {block name='order_details'}
-          <div id="order-details" class="mt-4">
-            <h3 class="h3 card-title">{l s='Order details' d='Shop.Theme.Checkout'}:</h3>
-            <ul>
-              <li>{l s='Order reference: %reference%' d='Shop.Theme.Checkout' sprintf=['%reference%' => $order.details.reference]}</li>
-              <li>{l s='Payment method: %method%' d='Shop.Theme.Checkout' sprintf=['%method%' => $order.details.payment]}</li>
-              {if !$order.details.is_virtual}
-                <li>
-                  {l s='Shipping method: %method%' d='Shop.Theme.Checkout' sprintf=['%method%' => $order.carrier.name]}<br>
-                  <em>{$order.carrier.delay}</em>
-                </li>
-              {/if}
-            </ul>
-          </div>
-        {/block}
+    {block name='order_confirmation_table'}
+      <div>
+        {include
+          file='checkout/_partials/order-confirmation-table.tpl'
+          products=$order.products
+          subtotals=$order.subtotals
+          totals=$order.totals
+          labels=$order.labels
+          add_product_link=false
+        }
+      </div>
+    {/block}
+    {block name='order_details'}
+      <div id="order-details" class="mt-4">
+        <h3 class="h3 card-title">{l s='Order details' d='Shop.Theme.Checkout'}:</h3>
+        <ul>
+          <li>{l s='Order reference: %reference%' d='Shop.Theme.Checkout' sprintf=['%reference%' => $order.details.reference]}</li>
+          <li>{l s='Payment method: %method%' d='Shop.Theme.Checkout' sprintf=['%method%' => $order.details.payment]}</li>
+          {if !$order.details.is_virtual}
+            <li>
+              {l s='Shipping method: %method%' d='Shop.Theme.Checkout' sprintf=['%method%' => $order.carrier.name]}<br>
+              <em>{$order.carrier.delay}</em>
+            </li>
+          {/if}
+        </ul>
+      </div>
+    {/block}
+
+    {block name='hook_order_confirmation_1'}
+      {hook h='displayOrderConfirmation1'}
+    {/block}
 
   </section>
 
@@ -90,10 +94,6 @@
         </div>
       </div>
     {/if}
-  {/block}
-
-  {block name='hook_order_confirmation_1'}
-    {hook h='displayOrderConfirmation1'}
   {/block}
 
   {block name='hook_order_confirmation_2'}
