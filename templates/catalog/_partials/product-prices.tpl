@@ -113,8 +113,5 @@
       {/if}
     </div>
   </div>
-  <p style="color: red;">
-    {$product.price_amount}
-  </p>
 
 {/if}
