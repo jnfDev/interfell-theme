@@ -22,37 +22,26 @@
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  * International Registered Trademark & Property of PrestaShop SA
  *}
-
-{if $nb_comments != 0 || $post_allowed}
-<div class="product-comments-additional-info">
-  {if $nb_comments == 0}
-    {if $post_allowed}
-      <button class="btn btn-sm btn-secondary btn-comment post-product-comment">
-        <i class="material-icons shopping-cart">edit</i>
-        {l s='Write your review' d='Modules.Productcomments.Shop'}
-      </button>
-    {/if}
-  {else}
+ {if $nb_comments != 0 || $post_allowed}
+  <div class="product-comments-additional-info">
+  
     {include file='module:productcomments/views/templates/hook/average-grade-stars.tpl' grade=$average_grade}
     <div class="additional-links">
-      <a class="link-comment btn btn-sm" href="#product-comments-list-header">
-        <i class="material-icons shopping-cart">chat</i>
-        {l s='Read user reviews' d='Modules.Productcomments.Shop'} ({$nb_comments})
+      <a class="link-comment" href="#product-comments-list">
+        {$nb_comments} Opiniones
       </a>
       {if $post_allowed}
-          &#124;
-        <a class="link-comment post-product-comment btn btn-sm" href="#product-comments-list-header">
-          <i class="material-icons shopping-cart">edit</i>
-          {l s='Write your review' d='Modules.Productcomments.Shop'}
-        </a>
+        <span>|</span>
+        <a href="#product-comments-list-footer">Review</a>
       {/if}
     </div>
-
+  
     {* Rich snippet rating*}
     <div itemprop="aggregateRating" itemtype="http://schema.org/AggregateRating" itemscope>
       <meta itemprop="reviewCount" content="{$nb_comments}" />
       <meta itemprop="ratingValue" content="{$average_grade}" />
     </div>
-  {/if}
-</div>
+  </div>
+
 {/if}
+  

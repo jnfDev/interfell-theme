@@ -11,13 +11,14 @@
 }
 
 .social-share-btn{
-  width: $social-share-size;
-  height: $social-share-size;
+  width: 2rem;
+  height: 2rem;
   display: block;
   margin: 0 $spacer/2;
-  background-color: $social-share-bg-color;
-  background-repeat: no-repeat;
-  background-position: center center;
+  background-color: transparent;
+  background-size: contain;
+  background-position: center;
+
   &.facebook {
     background-image: url(../img/facebook.svg);
   }
@@ -44,16 +45,6 @@
   }
 }
 .social-share-btn--product{
-  background-size:80%;
-  background-color: #fff;
-  @extend .shadow-sm;
-  border-radius: 50%;
-  transition: box-shadow 0.3s ease-in-out;
-  &:hover{
-    box-shadow:$card-box-shadow;;
-
-  }
-
   &.facebook {
     background-image: url(../img/facebook-gray.svg);
     &:hover{
@@ -80,75 +71,3 @@
   }
 
 }
-.social-share-btn--footer {
-  transition: background-color 0.3s ease-in-out;
-  &:hover{
-    background-color: theme-color('primary');
-  }
-}
-//
-//.facebook {
-//    background-image: url(../img/facebook.svg);
-//  &::before{
-//    content:"";
-//    background-image: url(../img/facebook-blue.svg);
-//  }
-//  &.icon-gray {
-//    background-image: url(../img/facebook-gray.svg);
-//    &:hover {
-//      background-image: url(../img/facebook-blue.svg);
-//    }
-//  }
-//}
-//.twitter {
-//  background-image: url(../img/twitter.svg);
-//  &::before{
-//    content:"";
-//    background-image: url(../img/twitter-blue.svg);
-//  }
-//  &.icon-gray {
-//    background-image: url(../img/twitter-gray.svg);
-//    &:hover {
-//      background-image: url(../img/twitter-blue.svg);
-//    }
-//  }
-//}
-//.rss {
-//  background-image: url(../img/rss.svg);
-//}
-//.youtube {
-//  background-image: url(../img/youtube.svg);
-//}
-//.googleplus {
-//  background-image: url(../img/gplus.svg);
-//  //&::before{
-//  //  content:"";
-//  //  background-image: url(../img/gplus-blue.svg);
-//  //}
-//  &.icon-gray {
-//    background-image: url(../img/gplus-gray.svg);
-//    &:hover {
-//      background-image: url(../img/gplus-blue.svg);
-//    }
-//  }
-//}
-//
-//.pinterest {
-//  background-image: url(../img/pinterest.svg);
-//  &::before{
-//    content:"";
-//    background-image: url(../img/pinterest-blue.svg);
-//  }
-//  &.icon-gray {
-//    background-image: url(../img/pinterest-gray.svg);
-//    &:hover {
-//      background-image: url(../img/pinterest-blue.svg);
-//    }
-//  }
-//}
-//.vimeo {
-//  background-image: url(../img/vimeo.svg);
-//}
-//.instagram {
-//  background-image: url(../img/instagram.svg);
-//}

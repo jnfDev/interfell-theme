@@ -25,43 +25,59 @@
 {if $product.show_price}
   <div class="product-prices">
 
-
     {block name='product_price'}
-      <div class="product__product-price product-price {if $product.has_discount}has-discount{/if}">
-      {block name='product_discount'}
-          {if $product.has_discount}
-              <span class="product-discount">
-                  {hook h='displayProductPriceBlock' product=$product type="old_price"}
-                  <span class="regular-price">{$product.regular_price}</span>
-              </span>
-          {/if}
-      {/block}
+      <div class="current-price">
+        {assign var="base_price" $product.price|regex_replace:"/(\,|\s).+$/":""}
+        {assign var="decimals_price" $product.price|regex_replace:"/^\d+(?=(\,|\s))/":""}
 
-        <div class="current-price">
-          <span class="current-price-display price{if $product.has_discount} current-price-discount{/if}">{$product.price}</span>
-          {if $product.has_discount}
-            {if $product.discount_type === 'percentage'}
-              <span class="discount discount-percentage">{l s='Save %percentage%' d='Shop.Theme.Catalog' sprintf=['%percentage%' => $product.discount_percentage_absolute]}</span>
-            {else}
-              <span class="discount discount-amount">
-                  {l s='Save %amount%' d='Shop.Theme.Catalog' sprintf=['%amount%' => $product.discount_to_display]}
-              </span>
-            {/if}
+        <div class="current-price-display price {if $product.has_discount} current-price-discount{/if}">
+          {if !empty($base_price)}
+            <span class="base">{$base_price}</span>
+          {/if}
+          {if isset($decimals_price)}
+            <span class="decimals-sign">{$decimals_price}</span>
           {/if}
         </div>
 
-        {block name='product_unit_price'}
-          {if $displayUnitPrice}
-              <p class="product-unit-price sub">{l s='(%unit_price%)' d='Shop.Theme.Catalog' sprintf=['%unit_price%' => $product.unit_price_full]}</p>
-          {/if}
-        {/block}
       </div>
-    {/block}
 
-    {block name='product_without_taxes'}
-        {if $priceDisplay == 2}
-        <p class="product-without-taxes">{l s='%price% tax excl.' d='Shop.Theme.Catalog' sprintf=['%price%' => $product.price_tax_exc]}</p>
-      {/if}
+      {block name='product_without_taxes'}
+        {if $priceDisplay == 0}
+        <div class="product-without-taxes">
+          <p class="price-title">SIN IVA</p>
+          <span class="price-without-taxes">{Tools::displayPrice($product.price_tax_exc)}</span>
+        </div>
+        {/if}
+      {/block}
+
+      {block name='product_discount'}
+        {if $product.has_discount}
+          <div class="price-discounted">
+            <p class="price-title">PVP</p>
+            <span class="regular-price">{$product.regular_price}</span>
+            {hook h='displayProductPriceBlock' product=$product type="old_price"}
+          </div>
+
+          <div class="discount-impact">
+            <p class="price-title">DTO.</p>
+            {if $product.discount_type === 'percentage'}
+              <span class="discount discount-percentage">{$product.discount_percentage_absolute}</span>
+            {else}
+              <span class="discount discount-amount">
+                  -{$product.discount_to_display}
+              </span>
+            {/if}
+          </div>
+
+        {/if}
+      {/block}
+
+      {block name='product_unit_price'}
+        {if $displayUnitPrice}
+            <p class="product-unit-price sub">{l s='(%unit_price%)' d='Shop.Theme.Catalog' sprintf=['%unit_price%' => $product.unit_price_full]}</p>
+        {/if}
+      {/block}
+
     {/block}
 
     {block name='product_pack_price'}
@@ -83,11 +99,6 @@
     {hook h='displayProductPriceBlock' product=$product type="weight" hook_origin='product_sheet'}
 
     <div class="tax-shipping-delivery-label">
-        {if !$configuration.taxes_enabled}
-            {l s='No tax' d='Shop.Theme.Catalog'}
-        {elseif $configuration.display_taxes_label}
-            {$product.labels.tax_long}
-        {/if}
       {hook h='displayProductPriceBlock' product=$product type="price"}
       {hook h='displayProductPriceBlock' product=$product type="after_price"}
       {if $product.additional_delivery_times == 1}

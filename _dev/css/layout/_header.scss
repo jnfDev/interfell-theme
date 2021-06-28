@@ -1,7 +1,6 @@
 .l-header{
   background-color: $header-bg;
-  margin-bottom: $spacer;
-  box-shadow: $header-box-shadow;
+  border-bottom: 1px solid #ccc;
 }
 
 .header__up{

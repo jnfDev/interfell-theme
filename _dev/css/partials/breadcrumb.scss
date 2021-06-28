@@ -1,0 +1,20 @@
+.breadcrumb-wrapper {
+    background-color: $white;
+    border-bottom: 1px solid #ccc;
+    .breadcrumb {
+        @include header-footer-wrapper;
+        padding-right: 50px;
+        padding-left: 50px;
+        height: 41px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        background-color: $white;
+        margin-bottom: 0;
+        font-size: 12px;
+        a, span {
+            text-transform: capitalize;
+            color: #000;
+        }
+    }
+}

@@ -32,14 +32,13 @@
         {block name='page_content_container'}
           <section class="page-content--product" id="content">
             {block name='page_content'}
-              {block name='product_flags'}
+              {* {block name='product_flags'}
                   {include file='catalog/_partials/product-flags.tpl'}
-              {/block}
+              {/block} *}
 
               {block name='product_cover_thumbnails'}
                 {include file='catalog/_partials/product-cover-thumbnails.tpl'}
               {/block}
-
 
             {/block}
           </section>
@@ -48,12 +47,14 @@
         <div class="col-lg-6">
           {block name='page_header_container'}
             {block name='page_header'}
-              <h1 class="h1">{block name='page_title'}{$product.name}{/block}</h1>
+              <h1 class="product-title h4">{block name='page_title'}<strong>{$product.name}</strong>{/block}</h1>
             {/block}
           {/block}
           {block name='product_prices'}
             {include file='catalog/_partials/product-prices.tpl'}
           {/block}
+
+          {widget name='productcomments'}
 
           <div class="product-information">
             {block name='product_description_short'}
@@ -77,6 +78,36 @@
                     {include file='catalog/_partials/product-variants.tpl'}
                   {/block}
 
+                  {block name='product_reference'}
+                    {if isset($product_manufacturer->id)}
+                      <div class="row">
+                          <label class="label col-md-3">Marca: </label>
+                          <div class="product-brand col-md-9">
+                            <a href="{$product_brand_url}">{$product_manufacturer->name}</a>
+                            {if isset($product.reference_to_display) && $product.reference_to_display neq ''}
+                              <span> - P/N: </span>
+                              <span>{$product.reference_to_display}</span>
+                            {/if}
+                            <span> | Cod. Artículo: </span>
+                            <span>{$product.ean13}</span>
+                          </div>
+                      </div>
+                    {/if}
+
+                  {/block}
+
+                  {block name='product_add_to_cart'}
+                    {include file='catalog/_partials/product-add-to-cart.tpl'}
+                  {/block}
+
+                  {block name='product_discounts'}
+                    {include file='catalog/_partials/product-discounts.tpl'}
+                  {/block}
+
+                  {block name='product_additional_info'}
+                    {include file='catalog/_partials/product-additional-info.tpl'}
+                  {/block}
+
                   {block name='product_pack'}
                     {if $packItems}
                       <section class="product-pack mb-4">
@@ -88,18 +119,6 @@
                         {/foreach}
                     </section>
                     {/if}
-                  {/block}
-
-                  {block name='product_discounts'}
-                    {include file='catalog/_partials/product-discounts.tpl'}
-                  {/block}
-
-                  {block name='product_add_to_cart'}
-                    {include file='catalog/_partials/product-add-to-cart.tpl'}
-                  {/block}
-
-                  {block name='product_additional_info'}
-                    {include file='catalog/_partials/product-additional-info.tpl'}
                   {/block}
 
                   {block name='product_refresh'}
@@ -116,19 +135,14 @@
               {hook h='displayReassurance'}
             {/block}
 
-          {block name='product_tabs'}
-              {include file='catalog/_partials/product-tabs.tpl'}
-          {/block}
-
-
           </div>
       </div>
     </div>
 
     {block name='product_accessories'}
       {if $accessories}
-        <section class="product-accessories mt-3">
-          <p class="products-section-title">{l s='You might also like' d='Shop.Theme.Catalog'}</p>
+        <section class="product-accessories">
+          <p class="products-section-title">COMPRADOS JUNTOS HABITUALMENTE</p>
           <div class="products">
             {foreach from=$accessories item="product_accessory"}
               {block name='product_miniature'}
@@ -140,8 +154,8 @@
       {/if}
     {/block}
 
-    {block name='product_footer'}
-      {hook h='displayFooterProduct' product=$product category=$category}
+    {block name='product_tabs'}
+      {include file='catalog/_partials/product-tabs.tpl'}
     {/block}
 
     {block name='product_images_modal'}

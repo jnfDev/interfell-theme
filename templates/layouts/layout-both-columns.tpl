@@ -52,11 +52,11 @@
         {include file='_partials/notifications.tpl'}
       {/block}
         {block name='wrapper'}
+        {block name='breadcrumb'}
+          {include file='_partials/breadcrumb.tpl'}
+        {/block}
         <section id="wrapper" class="{block name='layoutWrapperClass'}l-wrapper{/block}">
         {hook h="displayWrapperTop"}
-          {block name='breadcrumb'}
-            {include file='_partials/breadcrumb.tpl'}
-          {/block}
             <div class="row">
           {block name="left_column"}
             <div id="left-column" class="left-column col-12 col-lg-3">

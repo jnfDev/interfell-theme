@@ -19,6 +19,7 @@
 
 @import "partials/commons";
 @import "partials/lazysizes";
+
 /** COMPONENT **/
 @import "components/alert";
 @import "components/block-social";
@@ -32,6 +33,7 @@
 @import "components/searchbar";
 @import "components/shopping-cart";
 @import "components/lang-selector";
+@import "components/blockreassurance";
 
 @import "components/facet";
 @import "components/search-widget";
@@ -40,4 +42,4 @@
 @import "components/productcomments";
 @import "components/utilities";
 @import "partials/bs_alpha";
-
+@import "partials/breadcrumb.scss"

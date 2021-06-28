@@ -26,7 +26,6 @@
 {block name='social_sharing'}
   {if $social_share_links}
     <div class="social-sharing social-sharing--product">
-      <span>{l s='Share' d='Shop.Theme.Actions'}</span>
         {foreach from=$social_share_links item='social_share_link'}
           <a href="{$social_share_link.url}" class="text-hide social-share-btn social-share-btn--product {$social_share_link.class}" title="{$social_share_link.label}" target="_blank" rel="nofollow noopener">{$social_share_link.label}</a>
         {/foreach}

@@ -84,6 +84,20 @@ $(document).ready(function () {
 
     }
 
+  $('a[href="#product-comments-list"], a[href="#product-comments-list-footer"]').click(function(e){
+  
+    console.log("yeeeit")
+    e.preventDefault();
+    $('a[href="#reviews"]').tab("show");
+
+    const href = $(this).attr('href');
+    setTimeout(function() {
+      location.href = href;
+
+    },150);
+  
+  });
+
 });
 
 $(document).on('shown.bs.modal','#product-modal', function (e) {

@@ -1,5 +1,5 @@
 body{
-  background-color: $wrapper-bg;
+  background-color: $white;
   font-family: Open Sans,arial,sans-serif;
   color: #888;
 }
@@ -80,14 +80,16 @@ h1,.h1{
 
 .bootstrap-touchspin
 {
-  box-shadow: $bs-touchspin-boxshadow;
   border:$input-border-width solid $input-border-color;
+  max-width: 87px;
   > input {
-    max-width: 60px;
     border:none;
     box-shadow: none;
     text-align: center;
     font-weight: 700;
+    padding: 6px;
+    font-size: 13px;
+    background-color: #f2f2f2;
     
     &::-webkit-outer-spin-button,
     &::-webkit-inner-spin-button {
@@ -96,10 +98,14 @@ h1,.h1{
     }
   }
   .btn {
+    border: 1px solid #d2d2d2;
     position: relative;
     z-index: 2;
     color:$input-color;
     background-color: $white;
+    padding: 5px 8px;
+    font-size: 13px;
+    font-weight: 500;
 
   }
   .input-group-btn{
@@ -296,15 +302,13 @@ custom-file-label.selected:after{
 }
 //products-section-title
 .products-section-title{
-  text-transform: $section-title-text-transform;
-  text-align: $section-title-text-align;
+  text-transform: capitalize;
   display: block;
-  margin-bottom: $section-title-margin-bottom;
-  @extend .h1;
-  font-family: $section-title-font-family;
-  color:$section-title-color;
-  font-size:$section-title-size;
-  font-weight:$section-title-font-weight;
+  padding-bottom: 0.85rem;
+  color: #474545;
+  font-size: 15px;
+  font-weight: 700;
+  border-bottom: 2px solid #EBECED;
 }
 
 //home content spacing

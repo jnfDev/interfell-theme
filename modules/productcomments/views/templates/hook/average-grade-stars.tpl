@@ -25,7 +25,6 @@
 
 {if $nb_comments != 0}
   <div class="comments-note">
-    <span>{l s='Grade' d='Modules.Productcomments.Shop'}</span>
     <div class="grade-stars">
       {section name="i" start=0 loop=5 step=1}
           {strip}

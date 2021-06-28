@@ -1,0 +1,26 @@
+.blockreassurance_product {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    .item-product {
+        color: #888888;
+    }
+
+    .block-text-wrapper {
+        .block-title {
+            font-weight: 700;
+        }
+        font-size: 12px;
+        min-width: 100px;
+        float: left;
+    }
+
+    @include media-breakpoint-mobile() {
+        text-align: center;
+        .item-product,
+        .block-text-wrapper {
+            float: none !important;
+        }
+    }
+}

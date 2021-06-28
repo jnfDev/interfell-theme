@@ -26,9 +26,9 @@
   {if !$configuration.is_catalog}
 
     {block name='product_quantity'}
-      <div class="product-quantity row align-items-center no-gutters">
-        <label for="quantity_wanted" class="quantity__label col-auto">{l s='Quantity' d='Shop.Theme.Catalog'}</label>
-        <div class="qty col-auto">
+      <div class="product-quantity align-items-center row">
+        <label for="quantity_wanted" class="col-md-3">Cantidad: </label>
+        <div class="qty col-md-9">
           <input
             type="number"
             name="qty"
@@ -41,36 +41,37 @@
           >
         </div>
 
-        <div class="add col-auto">
-          <button
-            class="btn btn-primary add-to-cart btn-lg btn-block btn-add-to-cart js-add-to-cart"
-            data-button-action="add-to-cart"
-            type="submit"
-            {if !$product.add_to_cart_url}
-              disabled
-            {/if}
-          >
-            <i class="material-icons shopping-cart btn-add-to-cart__icon">&#xE547;</i><span class="btn-add-to-cart__spinner" role="status" aria-hidden="true"></span>
-            {l s='Add to cart' d='Shop.Theme.Actions'}
-          </button>
-        </div>
-          {hook h='displayProductActions' product=$product}
+        {hook h='displayProductActions' product=$product}
       </div>
     {/block}
 
     {block name='product_availability'}
-      <span id="product-availability">
-        {if $product.show_availability && $product.availability_message}
-          {if $product.availability == 'available'}
-            <i class="material-icons rtl-no-flip product-available text-success">&#xE5CA;</i>
-          {elseif $product.availability == 'last_remaining_items'}
-            <i class="material-icons product-last-itemstext-warning">&#xE002;</i>
-          {else}
-            <i class="material-icons product-unavailable text-danger">&#xE14B;</i>
-          {/if}
-          {$product.availability_message}
+      {if $product.show_availability && $product.availability_message}
+      <div id="product-availability" class="row align-items-start">
+        <label class="col-md-3">Disponibilidad: </label>
+
+        <div class="col-md-9">
+        {if $product.availability == 'available'}
+          <div class="available" data-toggle="collapse" href="#available" role="button" aria-expanded="false" aria-controls="available">
+            
+          
+            {$product.availability_message}
+
+            <div class="collapse" id="available">
+              Entrega estimada para envíos a península
+              <a href="#">+info</a>
+            </div>
+          </div>
+
+        {else}
+          <div class="not-available">
+            {$product.availability_message}        
+          </div>      
         {/if}
-      </span>
+        </div>
+
+      </div>
+      {/if}
     {/block}
 
     {block name='product_minimal_quantity'}
@@ -84,5 +85,18 @@
         {/if}
       </p>
     {/block}
+
+    <button
+      class="btn btn-primary add-to-cart btn-lg btn-block btn-add-to-cart js-add-to-cart"
+      data-button-action="add-to-cart"
+      type="submit"
+      {if !$product.add_to_cart_url}
+        disabled
+      {/if}
+    >
+      <i class="material-icons shopping-cart btn-add-to-cart__icon">&#xE547;</i><span class="btn-add-to-cart__spinner" role="status" aria-hidden="true"></span>
+      {l s='Add to cart' d='Shop.Theme.Actions'}
+    </button>
+
   {/if}
 </div>
