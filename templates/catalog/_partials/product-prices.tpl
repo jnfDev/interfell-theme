@@ -27,16 +27,14 @@
 
     {block name='product_price'}
       <div class="current-price">
-        {assign var="base_price" $product.price|regex_replace:"/(\,|\s).+$/":""}
-        {assign var="decimals_price" $product.price|regex_replace:"/^\d+(?=(\,|\s))/":""}
-
+        {assign var="splited_price" value="."|explode:$product.price_amount}
         <div class="current-price-display price {if $product.has_discount} current-price-discount{/if}">
-          {if !empty($base_price)}
-            <span class="base">{$base_price}</span>
+          {if isset($splited_price[0])}
+            <span class="base">{$splited_price[0]}</span>
           {/if}
-          {if isset($decimals_price)}
-            <span class="decimals-sign">{$decimals_price}</span>
-          {/if}
+          <span class="decimals-sign">
+            {if isset($splited_price[1])},{$splited_price[1]}{/if}{$currency.sign}
+          </span>
         </div>
 
       </div>
@@ -115,4 +113,8 @@
       {/if}
     </div>
   </div>
+  <p style="color: red;">
+    {$product.price_amount}
+  </p>
+
 {/if}
