@@ -14,6 +14,10 @@
   @include header-footer-wrapper
 }
 
+.header-nav {
+  @include header-footer-wrapper
+}
+
 .header__search{
   flex: 1;
   display: none;
