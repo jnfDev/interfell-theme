@@ -29,14 +29,9 @@
 {/block}
 
 {block name='header_nav'}
-    <div class="header-nav u-bor-bot">
-        <div class="u-a-i-c d--flex-between visible--desktop">
-            <div class="small">
-                {hook h='displayNav1'}
-            </div>
-            <div class="header-nav__right">
-                {hook h='displayNav2'}
-            </div>
+    <div class="u-bor-bot">
+        <div class="header-nav">
+            {hook h='displayNav1'}
         </div>
     </div>
 {/block}
